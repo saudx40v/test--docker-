@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة بيج متعددة الصفحات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #888;
+        }
+
+        .page-content {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* مخفي حتى يتم تفعيله عبر الرابط */
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الرأس -->
+    <header>
+        <h1>مرحباً بك في الصفحة الرئيسية</h1>
+    </header>
+
+    <!-- التنقل بين الصفحات -->
+    <nav>
+        <a href="#" onclick="showPage('page1')">الصفحة 1</a>
+        <a href="#" onclick="showPage('page2')">الصفحة 2</a>
+        <a href="#" onclick="showPage('page3')">الصفحة 3</a>
+    </nav>
+
+    <!-- محتوى الصفحات -->
+    <div id="page1" class="page active page-content">
+        <h2>الصفحة الأولى</h2>
+        <p>هذه هي محتويات الصفحة الأولى. يمكنك إضافة أي نص أو محتوى هنا.</p>
+    </div>
+
+    <div id="page2" class="page page-content">
+        <h2>الصفحة الثانية</h2>
+        <p>هذه هي محتويات الصفحة الثانية. يمكنك إضافة معلومات إضافية هنا.</p>
+    </div>
+
+    <div id="page3" class="page page-content">
+        <h2>الصفحة الثالثة</h2>
+        <p>هذه هي محتويات الصفحة الثالثة. يمكن تعديل هذه الصفحة بحرية.</p>
+    </div>
+
+    <!-- التذييل -->
+    <footer>
+        <p>حقوق النشر © 2025</p>
+    </footer>
+
+    <script>
+        // وظيفة للتبديل بين الصفحات
+        function showPage(pageId) {
+            // إخفاء جميع الصفحات
+            var pages = document.querySelectorAll('.page');
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+
+            // إظهار الصفحة المحددة
+            var activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+        }
+    </script>
+    
+</body>
+</html>
